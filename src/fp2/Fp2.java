@@ -16,7 +16,6 @@ public class Fp2 {
      */
     public static void main(String[] args) 
     {
-        // Iterating through a List 
         List<Complex> numbers = Arrays.asList(
                 new Complex( 0, 0),
                 new Complex( 0, 1),
@@ -35,38 +34,24 @@ public class Fp2 {
         
          // version 2: Use streams
         numbers.stream()
-               .forEach((Complex number) -> { System.out.println( number );
-        });
+               .forEach( (Complex number) -> { System.out.println( number ); } 
+                       );
         
         // version 3: type specification is unnecessary
         numbers.stream()
-               .forEach((number) -> { System.out.println( number );
-        });
+               .forEach((number) -> { System.out.println( number ); }
+                       );
         
          // version 4: when only 1 arg, parens are unnecessary
         numbers.stream()
-               .forEach( number -> { System.out.println( number );
-        });
+               .forEach( number -> { System.out.println( number ); }
+                       );
         
         // version 4: when function body has only 1 statement, braces are unnecessary
         numbers.stream()
                .forEach( number -> System.out.println( number ) );
         
         // version 5: Use method reference replacing function body with method name
-        numbers.stream()
-               .forEach( System.out::println );
-        
-        // TRANSFORMING A LIST
-        
-        // version 1: The old way
-        final Complex offset = new Complex( 2, 3 );
-        for ( Complex number : numbers )
-        {
-            number = number.add(offset); // does not do what we want!
-        }
-        System.out.println( "Offset numbers:" );
-        
-        // version 2: Use streams
         numbers.stream()
                .forEach( System.out::println );
         
@@ -79,7 +64,7 @@ public class Fp2 {
         System.out.println("");
         
         // USING METHOD REFERENCES
-        /** Java compiler aacepts either a lambda expression of a method reference
+        /** Java compiler accepts either a lambda expression of a method reference
          *  where a functional interface is expected.
          */
         numbers.stream()
