@@ -63,6 +63,9 @@ public class Fp2 {
                .forEach( size -> System.out.print( size + " " ) );
         System.out.println("");
         
+        numbers.forEach( number -> System.out.print( number.size() + " " ) );
+        System.out.println("");
+        
         // USING METHOD REFERENCES
         /** Java compiler accepts either a lambda expression of a method reference
          *  where a functional interface is expected.
@@ -90,20 +93,19 @@ public class Fp2 {
         numbers.stream()
                .filter((number) -> ( number.size() < 2 ))
                .forEach(smallElements2::add );
-        System.out.println(smallElements2 );
+        System.out.println( smallElements2 );
         
         // version 3: Collect functionally into a List of Complex objects.
         final List<Complex> smallElements3 = 
                 numbers.stream()
                        .filter( number -> number.size() < 2 )
                        .collect( Collectors.toList() );
-        System.out.println(smallElements3 );
+        System.out.println( smallElements3 );
         
          // version 4: Prefer expressions to statements.
         System.out.println( numbers.stream()
                                    .filter( number -> number.size() < 2 )
                                    .collect( Collectors.toList() ) 
         );
-        
     }
 }
