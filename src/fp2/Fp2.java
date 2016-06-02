@@ -27,31 +27,37 @@ public class Fp2 {
         // ITERATING THROUGH A LIST
         
         // version 1:  The old way
+        System.out.println( "Complex numbers the old way" );
         for ( Complex number : numbers )
         {
             System.out.println( number );
         }
         
          // version 2: Use streams
+         System.out.println( "Complex numbers the new way" );
         numbers.stream()
                .forEach( (Complex number) -> { System.out.println( number ); } 
                        );
         
         // version 3: type specification is unnecessary
+        System.out.println( "Complex numbers the new way w/o typing the lambda expression" );
         numbers.stream()
-               .forEach((number) -> { System.out.println( number ); }
-                       );
+               .forEach( (number) -> { System.out.println( number ); } 
+               );
         
          // version 4: when only 1 arg, parens are unnecessary
+        System.out.println( "Complex numbers the new way argument list w/o enclosing parens" );
         numbers.stream()
                .forEach( number -> { System.out.println( number ); }
                        );
         
         // version 4: when function body has only 1 statement, braces are unnecessary
+        System.out.println( "Complex numbers the new way body of lambda expression w/o braces" );
         numbers.stream()
                .forEach( number -> System.out.println( number ) );
         
         // version 5: Use method reference replacing function body with method name
+        System.out.println( "Complex numbers the new way using a method reference" );
         numbers.stream()
                .forEach( System.out::println );
         
@@ -91,8 +97,8 @@ public class Fp2 {
         // version 2: Use a filter
         final List<Complex> smallElements2 = new ArrayList<>();
         numbers.stream()
-               .filter((number) -> ( number.size() < 2 ))
-               .forEach(smallElements2::add );
+               .filter( ( number ) -> (number.size() < 2 )  )
+               .forEach( smallElements2::add );
         System.out.println( smallElements2 );
         
         // version 3: Collect functionally into a List of Complex objects.
